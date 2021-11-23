@@ -3,7 +3,7 @@ package com.ims.runningapp_kotlin.di
 import android.content.Context
 import androidx.room.Room
 import com.ims.runningapp_kotlin.db.RunningDatabase
-import com.ims.runningapp_kotlin.others.Constants.RUNNING_DATABASE_NAME
+import com.ims.runningapp_kotlin.utilities.Constants.RUNNING_DATABASE_NAME
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

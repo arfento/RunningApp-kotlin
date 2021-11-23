@@ -10,24 +10,22 @@ import com.ims.runningapp_kotlin.R
 import kotlinx.android.synthetic.main.fragment_setup.*
 
 
-class SetupFragment : Fragment() {
-
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        
-        tvContinue.setOnClickListener{
-            findNavController().navigate(R.id.action_setupFragment_to_runFragment)
-        }
-    }
+class SetupFragment : Fragment(R.layout.fragment_setup) {
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_setup, container, false)
+        return super.onCreateView(inflater, container, savedInstanceState)
+
+        tvContinue.setOnClickListener {
+            findNavController().navigate(R.id.action_setupFragment_to_runFragment)
+        }
+
     }
+
+
+
 
 }

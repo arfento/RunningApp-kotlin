@@ -1,31 +1,31 @@
 package com.ims.runningapp_kotlin.repository
 
+import com.ims.runningapp_kotlin.db.RunDAO
 import com.ims.runningapp_kotlin.db.Run
-import com.ims.runningapp_kotlin.db.RunDao
 import javax.inject.Inject
 
 class MainRepository  @Inject constructor(
-    val runDao: RunDao
+    val runDao: RunDAO
 ) {
 
     suspend fun insertRun(run: Run) = runDao.insertRun(run)
 
     suspend fun deleteRun(run: Run) = runDao.deleteRun(run)
 
-    fun getAllRunSortedByDate() = runDao.getAllRunSortedByDate()
+    fun getAllRunSortedByDate() = runDao.getAllRunsSortedByDate()
 
-    fun getAllRunSortedByDistance() = runDao.getAllRunSortedBydistanceInMeters()
+    fun getAllRunSortedByDistance() = runDao.getAllRunsSortedByDistance()
 
-    fun getAllRunSortedByTimeInMillis() = runDao.getAllRunSortedBytimeInMillis()
+    fun getAllRunSortedByTimeInMillis() = runDao.getAllRunsSortedByTimeInMillis()
 
-    fun getAllRunSortedByAvgSpeed() = runDao.getAllRunSortedByavgSpeedInKMH()
+    fun getAllRunSortedByAvgSpeed() = runDao.getAllRunsSortedByAvgSpeed()
 
-    fun getAllRunSortedByCaloriesBurned() = runDao.getAllRunSortedBycaloriesBurned()
+    fun getAllRunSortedByCaloriesBurned() = runDao.getAllRunsSortedByCaloriesBurned()
 
 
-    fun getTotalAvgSpeed() = runDao.getTotalavgSpeedInKMH()
-    fun getTotalDistance() = runDao.getTotaldistanceInMeters()
-    fun getTotalCaloriesBurned() = runDao.getTotalcaloriesBurned()
+    fun getTotalAvgSpeed() = runDao.getTotalAvgSpeed()
+    fun getTotalDistance() = runDao.getTotalDistance()
+    fun getTotalCaloriesBurned() = runDao.getTotalCaloriesBurned()
     fun getTotalTimeInMillis() = runDao.getTotalTimeInMillis()
 
 
