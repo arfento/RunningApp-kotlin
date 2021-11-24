@@ -14,27 +14,26 @@ import com.ims.runningapp_kotlin.ui.viewmodel.MainViewModel
 import com.ims.runningapp_kotlin.ui.viewmodel.StatisticsViewModel
 import com.ims.runningapp_kotlin.utilities.Constants.REQUEST_CODE_LOCATION_PERMISSION
 import com.ims.runningapp_kotlin.utilities.TrackingUtility
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_run.*
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 
-
+@AndroidEntryPoint
 class RunFragment : Fragment(R.layout.fragment_run), EasyPermissions.PermissionCallbacks {
 
-    private val viewModel : StatisticsViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         requestPermissions()
-
         fab.setOnClickListener {
             findNavController().navigate(R.id.action_runFragment_to_trackingFragment)
         }
     }
 
-
     private fun requestPermissions() {
-        if(TrackingUtility.hasLocationPemrission(requireContext())) {
+        if(TrackingUtility.hasLocationPermissions(requireContext())) {
             return
         }
         if(Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
@@ -75,5 +74,4 @@ class RunFragment : Fragment(R.layout.fragment_run), EasyPermissions.PermissionC
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
     }
-
 }
