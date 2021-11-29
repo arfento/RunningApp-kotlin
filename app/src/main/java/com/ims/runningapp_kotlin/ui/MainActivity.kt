@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)
         bottomNavigationView.setupWithNavController(navHostFragment.findNavController())
+        bottomNavigationView.setOnNavigationItemReselectedListener {  }
+
 
         navHostFragment.findNavController()
             .addOnDestinationChangedListener { _, destination, _ ->
